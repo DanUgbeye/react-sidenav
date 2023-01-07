@@ -2,12 +2,10 @@ import React from "react";
 import AppContextProvider from "./context/app.context";
 import AppRoutes from "./routes";
 
-function App() {
+export default function App() {
   return (
     <AppContextProvider>
       <AppRoutes />
     </AppContextProvider>
   );
 }
-
-export default App;

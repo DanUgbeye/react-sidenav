@@ -1,7 +1,7 @@
 import React from "react";
-import { sessionValue } from "../app.interface";
-import ArrowDownLeftIcon from "../assets/svg/arrowDownLeft.svg";
-import ArrowUpRightIcon from "../assets/svg/arrowUpRight.svg";
+import { sessionValue } from "../../../app.interface";
+import ArrowDownLeftIcon from "../../../components/svg/arrowDownLeft.svg";
+import ArrowUpRightIcon from "../../../components/svg/arrowUpRight.svg";
 
 export default function SessionData(props: {
   data: sessionValue;

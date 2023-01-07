@@ -1,26 +1,36 @@
-import React from 'react'
-import { Route, BrowserRouter, Routes } from 'react-router-dom'
-import SecondaryLayout from '../layouts/secondary.layout'
-import AboutPage from '../pages/About.page'
-import HomePage from '../pages/Home.page'
-import ProfilePage from '../pages/Profile.page'
+import React from "react";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import ProtectedRoute from "./ProtectedRoute.component";
+import SecondaryLayout from "../layouts/secondary.layout";
+
+// pages imports
+import HomePage from "../pages/home";
+import AboutPage from "../pages/about";
+import ProfilePage from "../pages/profile";
+import SettingsPage from "../pages/settings";
 
 export default function AppRoutes() {
   return (
-    <BrowserRouter >
+    <BrowserRouter>
       <Routes>
-        <Route path="/" >
-          <Route path="login" element={<>Login</>} />
-          <Route path="signup" element={<>Signup</>} />
+        <Route>
+          <Route path="/login" element={<>Login</>} />
+          <Route path="/signup" element={<>Signup</>} />
 
-          <Route element={<SecondaryLayout />}>
-            <Route index element={<HomePage />} />
-            <Route path="about" element={<AboutPage />} />
-            <Route path="profile" element={<ProfilePage />} />         
+          <Route
+            element={
+              <ProtectedRoute>
+                <SecondaryLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route index path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/settings" element={<SettingsPage />} />
           </Route>
-
         </Route>
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
